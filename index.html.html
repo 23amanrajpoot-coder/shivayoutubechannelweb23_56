@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>@python-h4y4g | YouTube Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <div class="background"></div>
+
+ <div class="studio">
+
+   <!-- Banner (Click to upload) -->
+   <div class="banner-crop" onclick="uploadBanner()">
+     <input type="file" id="bannerInput" hidden>
+     <img id="bannerImg" alt="">
+     <span id="bannerText">Click to upload banner</span>
+   </div>
+
+   <!-- Create button with animated water bg -->
+   <div class="create-btn">
+     CREATE ▾
+     <div class="create-menu">
+       <div onclick="uploadShort()" class="short-btn">Upload Short</div>
+       <div onclick="uploadVideo()" class="video-btn">Upload Video</div>
+       <div onclick="createPost()" class="post-btn">Create Post</div>
+     </div>
+   </div>
+
+   <!-- Channel Info -->
+   <div class="channel-info">
+     <div class="dp-crop" onclick="uploadDP()">
+       <input type="file" id="dpInput" hidden>
+       <img id="dpImg" alt="">
+       <span id="dpText">+</span>
+     </div>
+     <h2>@python-h4y4g</h2>
+   </div>
+
+   <!-- Tabs -->
+   <div class="tabs">
+     <button class="short-btn">Shorts</button>
+     <button class="video-btn">Videos</button>
+     <button class="post-btn">Posts</button>
+   </div>
+
+   <div class="videos">
+     <iframe
+       src="https://www.youtube.com/embed?listType=user_uploads&list=python-h4y4g"
+       allowfullscreen>
+     </iframe>
+   </div>
+
+ </div>
+
+ <script src="script.js"></script>
+</body>
+</html>

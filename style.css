@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  background: #000; /* fallback color same as dark theme */
+}
+
+/* Background slideshow */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  animation: bg 20s infinite;
+  /* Keep last image visible till next loads */
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+}
+
+@keyframes bg {
+  0% { background-image: url('pexels-jplenio-1102909.jpg'); }
+  25% { background-image: url('pexels-jplenio-1110663.jpg'); }
+  50% { background-image: url('pexels-pixabay-35857.jpg'); }
+  75% { background-image: url('pexels-simon73-698275.jpg'); }
+  100% { background-image: url('pexels-jplenio-1102909.jpg'); }
+}
+
+/* preload images to avoid flash */
+body:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: url('pexels-jplenio-1102909.jpg') no-repeat -9999px -9999px,
+              url('pexels-jplenio-1110663.jpg') no-repeat -9999px -9999px,
+              url('pexels-pixabay-35857.jpg') no-repeat -9999px -9999px,
+              url('pexels-simon73-698275.jpg') no-repeat -9999px -9999px;
+}
+
+/* Main card */
+.studio {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  color: white;
+  position: relative;
+}
+
+/* Banner */
+.banner-crop {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+  cursor: pointer;
+}
+.banner-crop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+.banner-crop span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .8;
+}
+
+/* CREATE button with water animation */
+.create-btn {
+  position: absolute;
+  top: 30px;
+  right: 60px;
+  padding: 12px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  animation: water 3s infinite ease-in-out;
+  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 50%, #00c6ff 100%);
+  background-size: 200% 200%;
+  color: white;
+  user-select: none;
+}
+@keyframes water {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.create-menu {
+  display: none;
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.create-btn:hover .create-menu { display: block; }
+.create-menu div {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Channel DP */
+.channel-info {
+  text-align: center;
+  margin-top: -60px;
+}
+.dp-crop {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #222;
+  border: 6px solid yellow;
+  margin: auto;
+  position: relative;
+  cursor: pointer;
+}
+.dp-crop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+.dp-crop span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 18px 0;
+}
+.tabs button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.short-btn { background: yellow; color: black; }
+.video-btn { background: green; }
+.post-btn { background: black; }
+
+/* Videos iframe */
+.videos iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  border-radius: 15px;
+}
